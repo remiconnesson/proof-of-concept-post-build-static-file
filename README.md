@@ -8,3 +8,10 @@ In that case, the output of a CLI app.
 
 I'm gonna try this : https://vitejs.dev/guide/assets.html#new-url-url-import-meta-url
 
+...
+
+Looks like I need to find a way to exclude a non-public file from getting it's name changed
+
+Or I can use a name that is easy to recognize so that the CLI looks for the file in the build output and replace it after each run.
+
+...
