@@ -15,3 +15,7 @@ Looks like I need to find a way to exclude a non-public file from getting it's n
 Or I can use a name that is easy to recognize so that the CLI looks for the file in the build output and replace it after each run.
 
 ...
+
+So I attempted to simply include the file in the asset folder, and to locate it after the build. But it doesn't work as the asset has been absorbed into a huge minified `.js` asset.
+
+Next idea: mess around with the different options for vite static asset handling.
