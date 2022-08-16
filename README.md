@@ -27,3 +27,9 @@ I tried using the `?raw` and the `?worker` option. The `?worker` option seems to
 One solution might be to encapsulate the payload in a worker script.
 
 ...
+
+So the worker script is indeed in a separate chunk after the build.
+
+I'm gonna try to modify the content of the built file and see if it still works.
+
+RESULT: It's working, I was able to tamper the built worker script to modify and it was successfully loaded. 
