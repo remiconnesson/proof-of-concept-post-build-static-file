@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import jsonUrl from './assets/db.json'
+import jsonUrl from './assets/db.json?worker'
 
 const enthusiasmLevel = ref("!!!");
 

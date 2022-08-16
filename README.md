@@ -19,3 +19,11 @@ Or I can use a name that is easy to recognize so that the CLI looks for the file
 So I attempted to simply include the file in the asset folder, and to locate it after the build. But it doesn't work as the asset has been absorbed into a huge minified `.js` asset.
 
 Next idea: mess around with the different options for vite static asset handling.
+
+...
+
+I tried using the `?raw` and the `?worker` option. The `?worker` option seems to have created a separate asset.
+
+One solution might be to encapsulate the payload in a worker script.
+
+...
