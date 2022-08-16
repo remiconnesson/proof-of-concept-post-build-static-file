@@ -33,3 +33,13 @@ So the worker script is indeed in a separate chunk after the build.
 I'm gonna try to modify the content of the built file and see if it still works.
 
 RESULT: It's working, I was able to tamper the built worker script to modify and it was successfully loaded. 
+
+...
+
+Now I'm gonna experiment with passing data back and forth the worker.
+
+Sending data back and forth: OK;
+
+Modifying the worker script after build: OK;
+
+NOTE: The way JS sends data between threads is by cloning, not reference. Something to keep in mind, especially with what I'm trying to do (ie. sending .csv)

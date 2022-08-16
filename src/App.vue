@@ -2,6 +2,8 @@
 import { ref } from 'vue';
 import Worker from './assets/worker.js?worker'
 
+let worker: Worker;
+
 const enthusiasmLevel = ref("!!!");
 
 const messageFromTheWorker = ref("No message yet...");
@@ -10,11 +12,19 @@ const workerLaunched = ref(false);
 
 function launchWorker (){  
   if (workerLaunched.value) return;
-  const worker = new Worker();
-  worker.addEventListener("message", (msg) => {
-    messageFromTheWorker.value = msg.data;
+  worker = new Worker();
+  worker.addEventListener("message", (event) => {
+    messageFromTheWorker.value = event.data;
   });
   workerLaunched.value = true;
+}
+
+const messageToWorker = ref("Hey");
+
+const sendMessageToWorker = () => {
+  if (!workerLaunched) return;
+  worker.postMessage(messageToWorker.value);
+  messageToWorker.value = "";
 }
 
 </script>
@@ -25,6 +35,10 @@ function launchWorker (){
   <button @click="launchWorker" v-if="!workerLaunched">Launch the worker</button>
   <br/>
   <p>{{ messageFromTheWorker }}</p>
+  <br/>
+  <div v-if="workerLaunched">
+    <input v-model="messageToWorker" /><button @click="sendMessageToWorker()">SEND</button>
+  </div>
 </template>
 
 <style>
